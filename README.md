@@ -1,1 +1,1 @@
-Assignment 3 : FE Mini Project
+Stock Market App
