@@ -1,0 +1,49 @@
+@use 'variables';
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: variables.$header-height;
+    padding: 0 20px;
+    background-color: variables.$primary-color;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: variables.$box-shadow;
+    
+    &__logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    &__logo-icon {
+      margin-right: 8px;
+      font-size: 24px;
+    }
+    
+    &__logo-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+    }
+    
+    &__nav {
+      display: flex;
+      gap: 20px;
+    }
+    
+    &__nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: variables.$border-radius;
+      transition: background-color 0.2s;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }

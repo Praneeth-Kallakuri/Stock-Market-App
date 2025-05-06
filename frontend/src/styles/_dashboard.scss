@@ -1,0 +1,45 @@
+@use 'variables';
+.dashboard {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    &__tabs {
+      display: flex;
+      border-bottom: 1px solid variables.$border-color;
+      margin-bottom: 20px;
+    }
+    
+    &__tab {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      position: relative;
+      color: variables.$light-text-color;
+      
+      &:hover {
+        color: variables.$text-color;
+      }
+      
+      &--active {
+        color: variables.$primary-color;
+        font-weight: 500;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: variables.$primary-color;
+        }
+      }
+    }
+    
+    &__content {
+      margin-top: 20px;
+    }
+  }

@@ -1,0 +1,269 @@
+@use 'variables'; 
+
+
+.portfolio-page {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  
+  &__title {
+    display: none; // Hidden in the design
+  }
+  
+  &__filters {
+    position: sticky;
+    top: 100px; // Below the header
+    left: 10px;
+    width: 400px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height:fit-content;
+    background-color: #e9ecef;
+
+    &-title{
+      margin-bottom:2px;
+      display: flex;
+    }
+    &-clear{
+      background-color: transparent;
+      color: variables.$primary-color;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-size: 14px;
+      text-align: right;
+      width: 100%;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    
+    h3 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: variables.$text-primary;
+      font-weight: 500;
+    }
+  }
+  
+  &__search {
+    margin-bottom: 15px;
+    
+    input {
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+  
+  &__date-filters {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+  
+  &__date-input {
+    width: 100%;
+    
+    input {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid variables.$border-color;
+      width: 100%;
+    }
+  }
+  
+  &__status-filters {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    border-top: 1px solid variables.$border-color;
+    border-bottom: 1px solid variables.$border-color;
+    padding: 10px 0;
+  }
+  
+  &__stock-filters {
+    margin-bottom: 15px;
+  }
+  
+  &__stock-checkboxes {
+    display: flex;
+    flex-direction: column;
+    max-height: 100px;
+    overflow-y: auto;
+  }
+  
+
+  
+  &__transactions {
+     margin-left: 30px;
+     margin-right: 30px;
+    padding: 15px;
+    flex: 1;
+  }
+  
+  &__no-transactions {
+    text-align: center;
+    color: variables.$text-secondary;
+    margin-top: 50px;
+  }
+}
+
+// For the top header (not in your component but shown in the image)
+.app-header {
+  background-color: variables.$primary-color;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  &__logo {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  &__nav {
+    display: flex;
+    gap: 20px;
+    
+    a {
+      color: white;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Transaction groups
+.transaction-group {
+  margin-bottom: 50px;
+  
+  &__date {
+    font-size: 16px;
+    font-weight: 500;
+    color: variables.$text-primary;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 3px dotted variables.$border-color;
+  }
+  
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+// Individual transaction items
+.transaction-item {
+  padding: 15px 0;
+  border-bottom: 1.5px solid #b6b6b6;
+  
+  &--faded {
+    opacity: 0.7;
+  }
+  
+  &__details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &__stock {
+    width: 150px;
+  }
+  
+  &__stock-name {
+    font-weight: 500;
+    margin: 0;
+    font-size: 16px;
+    color: variables.$text-primary;
+  }
+  
+  &__stock-symbol {
+    margin: 0;
+    font-size: 14px;
+    color: variables.$text-secondary;
+  }
+  
+  &__price {
+    font-size: 16px;
+    font-weight: 500;
+    width: 120px;
+    text-align: right;
+    margin: 0;
+  }
+  
+  &__time {
+    width: 80px;
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+    color: variables.$text-secondary;
+  }
+
+  &__time-status{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  &__status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    
+    &-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      
+      .transaction-item__status--passed & {
+        background-color: variables.$success-color;
+      }
+      
+      .transaction-item__status--failed & {
+        background-color: variables.$error-color;
+      }
+    }
+  }
+}
+
+// Checkbox styling
+.MuiFormControlLabel-root {
+  margin: 0;
+  
+  .MuiCheckbox-root {
+    padding: 4px;
+  }
+  
+  .MuiTypography-root {
+    font-size: 14px;
+  }
+}
+
+// Stock filter selected state
+.stock-filter--selected {
+  .MuiTypography-root {
+    color: variables.$primary-color;
+    font-weight: 500;
+  }
+}
+
+// Spinner
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
